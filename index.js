@@ -34,5 +34,12 @@ let Post = class {
 form.addEventListener("submit", function(e) {
     e.preventDefault();
     let myPost = new Post(formTitle.value, formBody.value);
-    console.log(myPost);
+    //console.log(myPost);
+    let myPostTitle = document.createElement("h2");
+    myPostTitle.textContent = `${myPost.title}`;
+    body.append(myPostTitle);
+
+    let myPostBody = document.createElement("p");
+    myPostBody.textContent = `${myPost.body}`;
+    body.append(myPostBody);
 })    
