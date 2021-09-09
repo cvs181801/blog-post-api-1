@@ -1,5 +1,8 @@
 //grab elements from the DOM
-const body = document.querySelector('body');
+const body = document.querySelector("body");
+const form = document.querySelector(".form");
+const formTitle = document.getElementById("formTitle");
+const formBody = document.getElementById("formBody");
 
 //create a way to get the blog posts from the API, and display them on the screen.
 
@@ -20,3 +23,16 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             body.append(horizontalLine);
         })
     })
+
+let Post = class {
+    constructor(title, body) {
+        this.title = title;
+        this.body = body
+    }
+}    
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    let myPost = new Post(formTitle.value, formBody.value);
+    console.log(myPost);
+})    
