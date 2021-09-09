@@ -1,0 +1,18 @@
+:root {
+    --ivory: ivory;
+    --drk-brown: rgb(46, 21, 5);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: var(--drk-brown);
+}
+
+.fineprint {
+    font-size: .5rem;
+}
