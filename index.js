@@ -35,11 +35,25 @@ form.addEventListener("submit", function(e) {
     e.preventDefault();
     let myPost = new Post(formTitle.value, formBody.value);
     //console.log(myPost);
-    let myPostTitle = document.createElement("h2");
-    myPostTitle.textContent = `${myPost.title}`;
-    body.append(myPostTitle);
+    // let myPostTitle = document.createElement("h2");
+    // myPostTitle.textContent = `${myPost.title}`;
+    // body.append(myPostTitle);
 
-    let myPostBody = document.createElement("p");
-    myPostBody.textContent = `${myPost.body}`;
-    body.append(myPostBody);
+    // let myPostBody = document.createElement("p");
+    // myPostBody.textContent = `${myPost.body}`;
+    // body.append(myPostBody);
+
+    fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+        method: 'POST', 
+        body: JSON.stringify({
+            title: formTitle.value,
+            body: formBody.value,
+            completed: false
+        }),
+        headers: {
+            "Content-Type": "application/json; charset=UTF8"
+        }
+    })
+        .then(res => res.json())
+        .then(data => console.log(data))
 })    
