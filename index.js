@@ -7,73 +7,73 @@ const formBody = document.getElementById("formBody");
 let myPostTitle = document.createElement("h2");
 let myPostBody = document.createElement("p");
 const myPostDiv = document.querySelector(".postDiv");
+const fiveMoreBtn = document.querySelector(".btn__5More");
 
-//add style
 myPostDiv.style.backgroundColor = "ivory";
 
 //create a way to get the blog posts from the API, and display them on the screen.
 
-// fetch("https://apis.scrimba.com/jsonplaceholder/posts")
-//     .then(res => res.json())
-//     .then(data => {
-//         const postsArr = data.slice(0, 5)
+fetch("https://apis.scrimba.com/jsonplaceholder/posts")
+    .then(res => res.json())
+    .then(data => {
+        const postsArr = data.slice(0, 5)
     
-//         postsArr.forEach((item, index) => {
-//             let horizontalLine = document.createElement('hr');
-//             let postTitle = document.createElement('h2');
-//             postTitle.textContent = `title: ${item.title}`
-//             body.append(postTitle);
+        postsArr.forEach((item, index) => {
+            //let myPostDiv = document.createElement("div");
             
-//             let postBody = document.createElement('p');
-//             postBody.textContent = `body: ${item.body}`;
-//             body.append(postBody);
-//             body.append(horizontalLine);
-//         })
-//     })
+            let horizontalLine = document.createElement('hr');
+            let postTitle = document.createElement('h2');
+            postTitle.textContent = `title: ${item.title}`
+            myPostDiv.append(postTitle);
+            
+            let postBody = document.createElement('p');
+            postBody.textContent = `body: ${item.body}`;
+            myPostDiv.append(postBody);
+            myPostDiv.append(horizontalLine);
+        })
+    })
+
+
 
 //let n = 0;
 
 //create a way to post a new blog to the API.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
 
-let Post = class {
-    constructor(title, body) {
-        this.title = title;
-        this.body = body
-    }
-}    
+// let Post = class {
+//     constructor(title, body) {
+//         this.title = title;
+//         this.body = body
+//     }
+// }    
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
+// form.addEventListener("submit", function(e) {
+//     e.preventDefault();
 
-    //n += 1;
-    //console.log(n);
+//     let myPost = new Post(formTitle.value, formBody.value);
+//     console.log(myPost);
 
-    let myPost = new Post(formTitle.value, formBody.value);
-    console.log(myPost);
+//     fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+//         method: "POST", 
+//         body: JSON.stringify({
+//             title: `${formTitle.value}`,
+//             body: `${formBody.value}`,
+//             completed: false
+//         }),
+//         headers: {
+//             "Content-Type": "application/json; charset=UTF-8"
+//         }
+//     })
+//         .then(res => res.json())
+//         .then((data) => {
+//             console.log(data);
 
-    fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
-        method: "POST", 
-        body: JSON.stringify({
-            title: `${formTitle.value}`,
-            body: `${formBody.value}`,
-            completed: false
-        }),
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        }
-    })
-        .then(res => res.json())
-        .then((data) => {
-            console.log(data);
+//             myPostTitle.textContent = `${data.title}`;
+//             myPostDiv.append(myPostTitle);
 
-            myPostTitle.textContent = `${data.title}`;
-            myPostDiv.append(myPostTitle);
-
-            myPostBody.textContent = `${data.body}`;
-            myPostDiv.append(myPostBody);
+//             myPostBody.textContent = `${data.body}`;
+//             myPostDiv.append(myPostBody);
            
-        })
-})    
+//         })
+// })    
 
-//console.log(form);
-//console.log(n);
+
