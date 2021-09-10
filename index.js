@@ -33,7 +33,36 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
         })
     })
 
+let start = 0;
+let end = 5;    
+let postsArrContinue;
 
+fiveMoreBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+        fetch("https://apis.scrimba.com/jsonplaceholder/posts")
+            .then(res => res.json())
+            .then(data => {
+                start += 5;
+                end += 5;
+                console.log("start:", start);
+                console.log("end:", end);
+                postsArrContinue = data.slice(start, end)
+    
+                postsArrContinue.forEach((item) => {
+            //let myPostDiv = document.createElement("div");
+            
+            let horizontalLine = document.createElement('hr');
+            let postTitle = document.createElement('h2');
+            postTitle.textContent = `title: ${item.title}`
+            myPostDiv.append(postTitle);
+            
+            let postBody = document.createElement('p');
+            postBody.textContent = `body: ${item.body}`;
+            myPostDiv.append(postBody);
+            myPostDiv.append(horizontalLine);
+        })
+    })
+})
 
 //let n = 0;
 
