@@ -1,6 +1,7 @@
 :root {
     --ivory: ivory;
     --drk-brown: rgb(46, 21, 5);
+    --ff-main: 'IM Fell DW Pica', serif;
 }
 
 * {
@@ -13,7 +14,7 @@ body {
     color: var(--drk-brown);
     background-image: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/oldbooks.jpeg);
     background-position: center;
-  
+    font-family: var(--ff-main);
 }
 
 

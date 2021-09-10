@@ -31,16 +31,20 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             myPostDivCard.style.textAlign = "center";
             myPostDivCard.style.justifyContent = "center";
             myPostDivCard.style.alignItems = "center";
+            myPostDivCard.style.marginBottom = ".3em";
+            myPostDivCard.style.boxShadow = "10px 20px 9px #37220E";
+            myPostDivCard.style.borderRadius = "7px";
             myPostDiv.append(myPostDivCard);
-            let horizontalLine = document.createElement('hr');
+            //let horizontalLine = document.createElement('hr');
             let postTitle = document.createElement('h2');
             postTitle.textContent = `${item.title}`
             myPostDivCard.append(postTitle);
             
             let postBody = document.createElement('p');
             postBody.textContent = `${item.body}`;
+            postBody.style.fontStyle = "italic";
             myPostDivCard.append(postBody);
-            myPostDivCard.append(horizontalLine);
+            //myPostDivCard.append(horizontalLine);
         })
     })
 
@@ -66,17 +70,21 @@ fiveMoreBtn.addEventListener("click", function(e) {
                     myPostDivCard.style.textAlign = "center";
                     myPostDivCard.style.justifyContent = "center";
                     myPostDivCard.style.alignItems = "center";
+                    myPostDivCard.style.marginBottom = ".3em";
+                    myPostDivCard.style.boxShadow = "10px 20px 30px #37220E";
+                    myPostDivCard.style.borderRadius = "7px";
                     myPostDiv.append(myPostDivCard);
             
-            let horizontalLine = document.createElement('hr');
+            //let horizontalLine = document.createElement('hr');
             let postTitle = document.createElement('h2');
             postTitle.textContent = `${item.title}`
             myPostDivCard.append(postTitle);
             
             let postBody = document.createElement('p');
             postBody.textContent = `${item.body}`;
+            postBody.style.fontStyle = "italic";
             myPostDivCard.append(postBody);
-            myPostDivCard.append(horizontalLine);
+            //myPostDivCard.append(horizontalLine);
         })
     })
 })
