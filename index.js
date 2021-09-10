@@ -31,6 +31,10 @@ myPostDiv.style.backgroundColor = "ivory";
 //         })
 //     })
 
+//let n = 0;
+
+//create a way to post a new blog to the API.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
+
 let Post = class {
     constructor(title, body) {
         this.title = title;
@@ -40,6 +44,10 @@ let Post = class {
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
+
+    //n += 1;
+    //console.log(n);
+
     let myPost = new Post(formTitle.value, formBody.value);
     console.log(myPost);
 
@@ -67,3 +75,5 @@ form.addEventListener("submit", function(e) {
         })
 })    
 
+//console.log(form);
+//console.log(n);
