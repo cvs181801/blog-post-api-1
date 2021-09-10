@@ -11,7 +11,12 @@
 
 body {
     color: var(--drk-brown);
+    background-image: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/oldbooks.jpeg);
+    background-position: center;
+  
 }
+
+
 
 .fineprint {
     font-size: .5rem;

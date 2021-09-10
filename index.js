@@ -3,8 +3,13 @@ const body = document.querySelector("body");
 const form = document.querySelector(".form");
 const formTitle = document.getElementById("formTitle");
 const formBody = document.getElementById("formBody");
+
 let myPostTitle = document.createElement("h2");
 let myPostBody = document.createElement("p");
+const myPostDiv = document.querySelector(".postDiv");
+
+//add style
+myPostDiv.style.backgroundColor = "ivory";
 
 //create a way to get the blog posts from the API, and display them on the screen.
 
@@ -41,8 +46,8 @@ form.addEventListener("submit", function(e) {
     fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
         method: "POST", 
         body: JSON.stringify({
-            title: "some title",
-            body: "some body",
+            title: `${formTitle.value}`,
+            body: `${formBody.value}`,
             completed: false
         }),
         headers: {
@@ -51,11 +56,14 @@ form.addEventListener("submit", function(e) {
     })
         .then(res => res.json())
         .then((data) => {
+            console.log(data);
+
             myPostTitle.textContent = `${data.title}`;
-            body.append(myPostTitle);
+            myPostDiv.append(myPostTitle);
 
             myPostBody.textContent = `${data.body}`;
-            body.append(myPostBody);
+            myPostDiv.append(myPostBody);
+           
         })
 })    
 
