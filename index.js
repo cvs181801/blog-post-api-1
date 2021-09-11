@@ -17,14 +17,11 @@ myPostDiv.style.alignItems = "center";
 
 //create a way to get the blog posts from the API, and display them on the screen.
 
-fetch("https://apis.scrimba.com/jsonplaceholder/posts")
-    .then(res => res.json())
-    .then(data => {
-        const postsArr = data.slice(0, 5)
+let postsArr = [];
+let myPostDivCard = document.createElement("div");
+
+function renderPosts() {
     
-        postsArr.forEach((item) => {
-  
-            let myPostDivCard = document.createElement("div");
             myPostDivCard.style.backgroundColor = "ivory";
             myPostDivCard.style.maxWidth = "50vw";
             myPostDivCard.style.margin = "0 auto";
@@ -35,8 +32,18 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             myPostDivCard.style.boxShadow = "10px 20px 9px black";
             myPostDivCard.style.borderRadius = "7px";
             myPostDivCard.style.padding = ".4em";
-            myPostDiv.append(myPostDivCard);
-            
+            myPostDivCard.style.border = "2px solid pink";  
+    
+}
+
+fetch("https://apis.scrimba.com/jsonplaceholder/posts")
+    .then(res => res.json())
+    .then(data => {
+        postsArr = data.slice(0, 5)
+    
+        postsArr.forEach((item) => {
+            let myPostDivCard = document.createElement("div");
+
             let postTitle = document.createElement('h2');
             postTitle.textContent = `${item.title}`
             myPostDivCard.append(postTitle);
@@ -45,7 +52,10 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             postBody.textContent = `${item.body}`;
             postBody.style.fontStyle = "italic";
             myPostDivCard.append(postBody);
+
             
+            myPostDiv.append(myPostDivCard);
+
             myPostDivCard.addEventListener("mouseover", function(e) {
                 myPostDivCard.style.transition = "250ms";
                 myPostDivCard.style.transform = "scale(1.1)";
@@ -55,7 +65,11 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
                 myPostDivCard.style.transition = "250ms";
                 myPostDivCard.style.transform = "scale(1)";
             })
+            
+            return renderPosts();
+            
         })
+        
     })
 
 let start = 0;
@@ -70,31 +84,34 @@ fiveMoreBtn.addEventListener("click", function(e) {
                 start += 5;
                 end += 5;
                 
-                postsArrContinue = data.slice(start, end)
+                postsArrContinue = data.slice(start, end);
     
                 postsArrContinue.forEach((item) => {
                     let myPostDivCard = document.createElement("div");
-                    myPostDivCard.style.backgroundColor = "ivory";
-                    myPostDivCard.style.maxWidth = "50vw";
-                    myPostDivCard.style.margin = "0 auto";
-                    myPostDivCard.style.textAlign = "center";
-                    myPostDivCard.style.justifyContent = "center";
-                    myPostDivCard.style.alignItems = "center";
-                    myPostDivCard.style.marginBottom = "1em";
-                    myPostDivCard.style.boxShadow = "10px 20px 30px black";
-                    myPostDivCard.style.borderRadius = "7px";
-                    myPostDivCard.style.padding = ".4em";
-                    myPostDiv.append(myPostDivCard);
-    
 
-            let postTitle = document.createElement('h2');
-            postTitle.textContent = `${item.title}`
-            myPostDivCard.append(postTitle);
-            
-            let postBody = document.createElement('p');
-            postBody.textContent = `${item.body}`;
-            postBody.style.fontStyle = "italic";
-            myPostDivCard.append(postBody);
+                    let postTitle = document.createElement('h2');
+                    postTitle.textContent = `${item.title}`
+                    myPostDivCard.append(postTitle);
+                    
+                    let postBody = document.createElement('p');
+                    postBody.textContent = `${item.body}`;
+                    postBody.style.fontStyle = "italic";
+                    myPostDivCard.append(postBody);
+
+                    
+                    myPostDiv.append(myPostDivCard);
+                    
+                    // myPostDivCard.style.backgroundColor = "ivory";
+                    // myPostDivCard.style.maxWidth = "50vw";
+                    // myPostDivCard.style.margin = "0 auto";
+                    // myPostDivCard.style.textAlign = "center";
+                    // myPostDivCard.style.justifyContent = "center";
+                    // myPostDivCard.style.alignItems = "center";
+                    // myPostDivCard.style.marginBottom = "1em";
+                    // myPostDivCard.style.boxShadow = "10px 20px 30px black";
+                    // myPostDivCard.style.borderRadius = "7px";
+                    // myPostDivCard.style.padding = ".4em";
+                    // myPostDiv.append(myPostDivCard);
 
             myPostDivCard.addEventListener("mouseover", function(e) {
                 myPostDivCard.style.transition = "250ms";
@@ -105,7 +122,9 @@ fiveMoreBtn.addEventListener("click", function(e) {
                 myPostDivCard.style.transition = "250ms";
                 myPostDivCard.style.transform = "scale(1)";
             })
-           
+            console.log(renderPosts());
+            return renderPosts();
+            
         })
     })
 })
