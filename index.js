@@ -32,7 +32,7 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             myPostDivCard.style.justifyContent = "center";
             myPostDivCard.style.alignItems = "center";
             myPostDivCard.style.marginBottom = ".3em";
-            myPostDivCard.style.boxShadow = "10px 20px 9px #37220E";
+            myPostDivCard.style.boxShadow = "10px 20px 9px black";
             myPostDivCard.style.borderRadius = "7px";
             myPostDiv.append(myPostDivCard);
             //let horizontalLine = document.createElement('hr');
@@ -71,7 +71,7 @@ fiveMoreBtn.addEventListener("click", function(e) {
                     myPostDivCard.style.justifyContent = "center";
                     myPostDivCard.style.alignItems = "center";
                     myPostDivCard.style.marginBottom = ".3em";
-                    myPostDivCard.style.boxShadow = "10px 20px 30px #37220E";
+                    myPostDivCard.style.boxShadow = "10px 20px 30px black";
                     myPostDivCard.style.borderRadius = "7px";
                     myPostDiv.append(myPostDivCard);
             
