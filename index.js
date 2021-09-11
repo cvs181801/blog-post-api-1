@@ -21,7 +21,6 @@ let postsArr = [];
 let myPostDivCard = document.createElement("div");
 
 function renderPosts() {
-    
             myPostDivCard.style.backgroundColor = "ivory";
             myPostDivCard.style.maxWidth = "50vw";
             myPostDivCard.style.margin = "0 auto";
@@ -33,7 +32,6 @@ function renderPosts() {
             myPostDivCard.style.borderRadius = "7px";
             myPostDivCard.style.padding = ".4em";
             myPostDivCard.style.border = "2px solid pink";  
-    
 }
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
