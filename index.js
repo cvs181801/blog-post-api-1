@@ -31,11 +31,12 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             myPostDivCard.style.textAlign = "center";
             myPostDivCard.style.justifyContent = "center";
             myPostDivCard.style.alignItems = "center";
-            myPostDivCard.style.marginBottom = ".3em";
+            myPostDivCard.style.marginBottom = "1em";
             myPostDivCard.style.boxShadow = "10px 20px 9px black";
             myPostDivCard.style.borderRadius = "7px";
+            myPostDivCard.style.padding = ".4em";
             myPostDiv.append(myPostDivCard);
-            //let horizontalLine = document.createElement('hr');
+            
             let postTitle = document.createElement('h2');
             postTitle.textContent = `${item.title}`
             myPostDivCard.append(postTitle);
@@ -44,7 +45,16 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
             postBody.textContent = `${item.body}`;
             postBody.style.fontStyle = "italic";
             myPostDivCard.append(postBody);
-            //myPostDivCard.append(horizontalLine);
+            
+            myPostDivCard.addEventListener("mouseover", function(e) {
+                myPostDivCard.style.transition = "250ms";
+                myPostDivCard.style.transform = "scale(1.1)";
+            })
+
+            myPostDivCard.addEventListener("mouseout", function(e) {
+                myPostDivCard.style.transition = "250ms";
+                myPostDivCard.style.transform = "scale(1)";
+            })
         })
     })
 
@@ -70,21 +80,12 @@ fiveMoreBtn.addEventListener("click", function(e) {
                     myPostDivCard.style.textAlign = "center";
                     myPostDivCard.style.justifyContent = "center";
                     myPostDivCard.style.alignItems = "center";
-                    myPostDivCard.style.marginBottom = ".3em";
+                    myPostDivCard.style.marginBottom = "1em";
                     myPostDivCard.style.boxShadow = "10px 20px 30px black";
                     myPostDivCard.style.borderRadius = "7px";
-                    myPostDivCard.style.transition = "transform 250ms";
-                    //myPostDivCard.style.transform = "scale(1.1";
+                    myPostDivCard.style.padding = ".4em";
                     myPostDiv.append(myPostDivCard);
-            
-
-                //     transition: transform 250ms;
-                // }
-                
-                // input:focus {
-                //     transform: scale(1.1);
-                // }
-
+    
 
             let postTitle = document.createElement('h2');
             postTitle.textContent = `${item.title}`
@@ -95,13 +96,15 @@ fiveMoreBtn.addEventListener("click", function(e) {
             postBody.style.fontStyle = "italic";
             myPostDivCard.append(postBody);
 
-            // myPostDivCard.addEventListener("mouseover", function(e) {
-            //     myPostDivCard.style.transform = "scale(1.1)";
-            // })
+            myPostDivCard.addEventListener("mouseover", function(e) {
+                myPostDivCard.style.transition = "250ms";
+                myPostDivCard.style.transform = "scale(1.1)";
+            })
 
-            // myPostDivCard.addEventListener("mouseout", function(e) {
-
-            // })
+            myPostDivCard.addEventListener("mouseout", function(e) {
+                myPostDivCard.style.transition = "250ms";
+                myPostDivCard.style.transform = "scale(1)";
+            })
            
         })
     })
