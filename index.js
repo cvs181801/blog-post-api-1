@@ -73,9 +73,19 @@ fiveMoreBtn.addEventListener("click", function(e) {
                     myPostDivCard.style.marginBottom = ".3em";
                     myPostDivCard.style.boxShadow = "10px 20px 30px black";
                     myPostDivCard.style.borderRadius = "7px";
+                    myPostDivCard.style.transition = "transform 250ms";
+                    //myPostDivCard.style.transform = "scale(1.1";
                     myPostDiv.append(myPostDivCard);
             
-            //let horizontalLine = document.createElement('hr');
+
+                //     transition: transform 250ms;
+                // }
+                
+                // input:focus {
+                //     transform: scale(1.1);
+                // }
+
+
             let postTitle = document.createElement('h2');
             postTitle.textContent = `${item.title}`
             myPostDivCard.append(postTitle);
@@ -84,7 +94,15 @@ fiveMoreBtn.addEventListener("click", function(e) {
             postBody.textContent = `${item.body}`;
             postBody.style.fontStyle = "italic";
             myPostDivCard.append(postBody);
-            //myPostDivCard.append(horizontalLine);
+
+            // myPostDivCard.addEventListener("mouseover", function(e) {
+            //     myPostDivCard.style.transform = "scale(1.1)";
+            // })
+
+            // myPostDivCard.addEventListener("mouseout", function(e) {
+
+            // })
+           
         })
     })
 })
