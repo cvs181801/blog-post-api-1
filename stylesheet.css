@@ -5,6 +5,7 @@
     --light-peru: rgb(224, 175, 127);
     --vino: rgb(112, 32, 32);
     --cognac: rgb(141, 72, 26);
+    --soft-vino: rgb(241, 213, 213);
 }
 
 * {
@@ -39,6 +40,7 @@ h1 {
     box-shadow: 10px 20px 30px black;
     border-radius: 7px;
     padding: .4em;
+    border: 1px solid var(--drk-brown);
 }
 
 .btn__5More {
@@ -57,11 +59,13 @@ h1 {
     cursor: pointer;
     padding: .1em;
     transition: 250ms;
+    border: 1px solid var(--drk-brown);
 }
 
-.btn__5More:hover,
-.btn__5More:focus {
+.btn__5More:hover {
     transform: scale(1.1);
+    background-color: var(--soft-vino);
+    border: 1px solid var(--vino);
 }
 
 span {
@@ -88,16 +92,15 @@ span {
     }
 
     .fineprint {
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        margin-top: 9em;
+        
+        margin-top: 3.5em;
     }
 
     .btn__5More {
-        margin: 0 0 0 47em;
+        margin: 1.5em 0 1.5em 32em;
         text-align: center;
         align-items: center;
         justify-content: center;
+        font-size: 1.2rem;
     }
 }
