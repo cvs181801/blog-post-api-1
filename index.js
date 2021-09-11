@@ -20,19 +20,21 @@ myPostDiv.style.alignItems = "center";
 let postsArr = [];
 let myPostDivCard = document.createElement("div");
 
-function renderPosts() {
-            myPostDivCard.style.backgroundColor = "ivory";
-            myPostDivCard.style.maxWidth = "50vw";
-            myPostDivCard.style.margin = "0 auto";
-            myPostDivCard.style.textAlign = "center";
-            myPostDivCard.style.justifyContent = "center";
-            myPostDivCard.style.alignItems = "center";
-            myPostDivCard.style.marginBottom = "1em";
-            myPostDivCard.style.boxShadow = "10px 20px 9px black";
-            myPostDivCard.style.borderRadius = "7px";
-            myPostDivCard.style.padding = ".4em";
-            myPostDivCard.style.border = "2px solid pink";  
-}
+function renderPosts(element) { //this is not working
+        element.style.backgroundColor = "ivory";
+        element.style.maxWidth = "50vw";
+        element.style.margin = "0 auto";
+        element.style.textAlign = "center";
+        element.style.justifyContent = "center";
+        element.style.alignItems = "center";
+        element.style.marginBottom = "1em";
+        element.style.boxShadow = "10px 20px 9px black";
+        element.style.borderRadius = "7px";
+        element.style.padding = ".4em";
+        element.style.border = "2px solid pink";  
+    };    
+
+
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(res => res.json())
@@ -120,7 +122,7 @@ fiveMoreBtn.addEventListener("click", function(e) {
                 myPostDivCard.style.transition = "250ms";
                 myPostDivCard.style.transform = "scale(1)";
             })
-            console.log(renderPosts());
+            console.log(renderPosts(myPostDivCard));
             return renderPosts();
             
         })
