@@ -4,7 +4,7 @@
     --ff-main: 'IM Fell DW Pica', serif;
     --light-peru: rgb(224, 175, 127);
     --vino: rgb(112, 32, 32);
-    --cognac: 
+    --cognac: rgb(141, 72, 26);
 }
 
 * {
@@ -15,13 +15,24 @@
 
 body {
     color: var(--drk-brown);
-    background: rgba(141, 72, 26, 0.4);
-    background-image: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/oldbooks.jpeg);
-    /*background-blend-mode: screen;*/
-    background-position: center;
     font-family: var(--ff-main);
     margin: 0 auto;
+    background-color: var(--cognac);
 }
+
+.background {
+    background: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/oldbooks.jpeg);
+    background-color: var(--cognac);
+    opacity: .8;
+    z-index: 3;
+    background-position: center;
+}
+
+/*.background::before {
+    background-color: var(--cognac);
+    background-image: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/oldbooks.jpeg);
+    background-position: center;
+}*/
 
 .btn__5More {
     text-align: center;
