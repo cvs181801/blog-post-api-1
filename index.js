@@ -129,41 +129,52 @@ fiveMoreBtn.addEventListener("click", function(e) {
 
 //create a way to post a new blog to the API.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
 
-// let Post = class {
-//     constructor(title, body) {
-//         this.title = title;
-//         this.body = body
-//     }
-// }    
+let Post = class { //ES6 syntax this time!
+    constructor(title, body) {
+        this.title = title;
+        this.body = body
+    }
+}   
 
-// form.addEventListener("submit", function(e) {
-//     e.preventDefault();
+const renderMyPost = new RenderPosts("ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em")
 
-//     let myPost = new Post(formTitle.value, formBody.value);
-//     console.log(myPost);
+let myUniquePostsArray = [];
 
-//     fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
-//         method: "POST", 
-//         body: JSON.stringify({
-//             title: `${formTitle.value}`,
-//             body: `${formBody.value}`,
-//             completed: false
-//         }),
-//         headers: {
-//             "Content-Type": "application/json; charset=UTF-8"
-//         }
-//     })
-//         .then(res => res.json())
-//         .then((data) => {
-//             console.log(data);
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-//             myPostTitle.textContent = `${data.title}`;
-//             myPostDiv.append(myPostTitle);
+    let myPost = new Post(formTitle.value, formBody.value);
+    console.log(myPost);
 
-//             myPostBody.textContent = `${data.body}`;
-//             myPostDiv.append(myPostBody);
-           
-//         })
-// })    
+    fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+        method: "POST", 
+        body: JSON.stringify({
+            title: `${formTitle.value}`,
+            body: `${formBody.value}`,
+            completed: false
+        }),
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(res => res.json())
+        .then((data) => {
+            
+            myUniquePostsArray.push(data);
+            console.log(myUniquePostsArray);
+            myUniquePostsArray.forEach((item) => {
+                let myUniquePostDivCard = document.createElement("div");
+                myPostTitle.textContent = `${data.title}`;
+                renderMyPost.render(myUniquePostDivCard);
+                myUniquePostDivCard.style.color = "#003300";
+                myUniquePostDivCard.append(myPostTitle);
+
+                myPostBody.textContent = `${data.body}`;
+                myUniquePostDivCard.append(myPostBody);
+
+                myPostDiv.append(myUniquePostDivCard);
+        })
+    })
+})    
 
 
