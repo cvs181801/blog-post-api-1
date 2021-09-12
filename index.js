@@ -15,18 +15,17 @@ myPostDiv.style.textAlign = "center";
 myPostDiv.style.justifyContent = "center";
 myPostDiv.style.alignItems = "center";
 
-//create a way to get the blog posts from the API, and display them on the screen.
+//create a way to style each of the blog posts once they're retreived from the api.
 
 let postsArr = [];
-//let myPostDivCard = document.createElement("div");
 
- function RenderPosts(backgroundcolor, maxwidth, textalign, justifycontent, alignitems, marginbottom, boxshadow, borderradius, padding) { //this is not working
+ function RenderPosts(backgroundcolor, maxwidth, textalign, justifycontent, alignitems, margin, boxshadow, borderradius, padding) { //this is not working
         this.backgroundcolor = backgroundcolor;
         this.maxwidth = maxwidth;
         this.textalign = textalign;
         this.justifycontent = justifycontent;
         this.alignitems = alignitems;
-        this.marginbottom = marginbottom;
+        this.margin = margin;
         this.boxShadow = boxshadow;
         this.borderradius = borderradius;
         this.padding = padding;
@@ -37,16 +36,16 @@ let postsArr = [];
                     element.style.textAlign = `${this.textalign}`;
                     element.style.justifyContent = `${this.justifycontent}`;
                     element.style.alignItems = `${this.alignitems}`;
-                    element.style.marginBottom = `${this.marginbottom}`;
+                    element.style.margin = `${this.margin}`;
                     element.style.boxShadow = `${this.boxshadow}`;
                     element.style.borderRadius = `${this.borderradius}`;
                     element.style.padding = `${this.padding}`;
         }
 }    
 
-let renders = new RenderPosts("ivory", "50vw", "center", "center", "center", "1em", "10px 20px 30px black", "7px", ".4em");
+let renders = new RenderPosts("ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em");
 
-
+//create a way to get the blog posts from the API, and display them on the screen.
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(res => res.json())
@@ -55,18 +54,6 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     
         postsArr.forEach((item) => {
             let myPostDivCard = document.createElement("div");
-
-            // myPostDivCard.style.backgroundColor = "ivory";
-            // myPostDivCard.style.maxWidth = "50vw";
-            // myPostDivCard.style.margin = "0 auto";
-            // myPostDivCard.style.textAlign = "center";
-            // myPostDivCard.style.justifyContent = "center";
-            // myPostDivCard.style.alignItems = "center";
-            // myPostDivCard.style.marginBottom = "1em";
-            // myPostDivCard.style.boxShadow = "10px 20px 30px black";
-            // myPostDivCard.style.borderRadius = "7px";
-            // myPostDivCard.style.padding = ".4em";
-            
             renders.render(myPostDivCard);
             myPostDiv.append(myPostDivCard);
 
@@ -109,14 +96,8 @@ fiveMoreBtn.addEventListener("click", function(e) {
     
                 postsArrContinue.forEach((item) => {
                     let myPostDivCard = document.createElement("div");
-
-                    //**call method */
                     renders.render(myPostDivCard);
-                    console.log(`${renders.alignitems}`);
-                    //** */
-
                     myPostDiv.append(myPostDivCard);
-
 
                     let postTitle = document.createElement('h2');
                     postTitle.textContent = `${item.title}`
@@ -141,6 +122,8 @@ fiveMoreBtn.addEventListener("click", function(e) {
         })
     })
 })
+
+//*** The below code was used to practice posting a new blog to the api using 'POST' method. */
 
 //let n = 0;
 
