@@ -20,19 +20,33 @@ myPostDiv.style.alignItems = "center";
 let postsArr = [];
 //let myPostDivCard = document.createElement("div");
 
-// function renderPosts(element) { //this is not working
-//         element.style.backgroundColor = "ivory";
-//         element.style.maxWidth = "50vw";
-//         element.style.margin = "0 auto";
-//         element.style.textAlign = "center";
-//         element.style.justifyContent = "center";
-//         element.style.alignItems = "center";
-//         element.style.marginBottom = "1em";
-//         element.style.boxShadow = "10px 20px 9px black";
-//         element.style.borderRadius = "7px";
-//         element.style.padding = ".4em";
-//         element.style.border = "2px solid pink";  
-//     };    
+ function RenderPosts(backgroundcolor, maxwidth, textalign, justifycontent, alignitems, marginbottom, boxshadow, borderradius, padding) { //this is not working
+        this.backgroundcolor = backgroundcolor;
+        this.maxwidth = maxwidth;
+        this.textalign = textalign;
+        this.justifycontent = justifycontent;
+        this.alignitems = alignitems;
+        this.marginbottom = marginbottom;
+        this.boxShadow = boxshadow;
+        this.borderradius = borderradius;
+        this.padding = padding;
+      
+        this.render = function(element) {
+                    element.style.backgroundColor = `${this.backgroundcolor}`;
+                    element.style.maxWidth = `${this.maxwidth}`;
+                    element.style.textAlign = `${this.textalign}`;
+                    element.style.justifyContent = `${this.justifycontent}`;
+                    element.style.alignItems = `${this.alignitems}`;
+                    element.style.marginBottom = `${this.marginbottom}`;
+                    element.style.boxShadow = `${this.boxshadow}`;
+                    element.style.borderRadius = `${this.borderradius}`;
+                    element.style.padding = `${this.padding}`;
+        }
+}    
+
+let renders = new RenderPosts("ivory", "50vw", "center", "center", "center", "1em", "10px 20px 30px black", "7px", ".4em");
+
+
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(res => res.json())
@@ -42,16 +56,18 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
         postsArr.forEach((item) => {
             let myPostDivCard = document.createElement("div");
 
-            myPostDivCard.style.backgroundColor = "ivory";
-            myPostDivCard.style.maxWidth = "50vw";
-            myPostDivCard.style.margin = "0 auto";
-            myPostDivCard.style.textAlign = "center";
-            myPostDivCard.style.justifyContent = "center";
-            myPostDivCard.style.alignItems = "center";
-            myPostDivCard.style.marginBottom = "1em";
-            myPostDivCard.style.boxShadow = "10px 20px 30px black";
-            myPostDivCard.style.borderRadius = "7px";
-            myPostDivCard.style.padding = ".4em";
+            // myPostDivCard.style.backgroundColor = "ivory";
+            // myPostDivCard.style.maxWidth = "50vw";
+            // myPostDivCard.style.margin = "0 auto";
+            // myPostDivCard.style.textAlign = "center";
+            // myPostDivCard.style.justifyContent = "center";
+            // myPostDivCard.style.alignItems = "center";
+            // myPostDivCard.style.marginBottom = "1em";
+            // myPostDivCard.style.boxShadow = "10px 20px 30px black";
+            // myPostDivCard.style.borderRadius = "7px";
+            // myPostDivCard.style.padding = ".4em";
+            
+            renders.render(myPostDivCard);
             myPostDiv.append(myPostDivCard);
 
             let postTitle = document.createElement('h2');
@@ -94,16 +110,11 @@ fiveMoreBtn.addEventListener("click", function(e) {
                 postsArrContinue.forEach((item) => {
                     let myPostDivCard = document.createElement("div");
 
-                    myPostDivCard.style.backgroundColor = "ivory";
-                    myPostDivCard.style.maxWidth = "50vw";
-                    myPostDivCard.style.margin = "0 auto";
-                    myPostDivCard.style.textAlign = "center";
-                    myPostDivCard.style.justifyContent = "center";
-                    myPostDivCard.style.alignItems = "center";
-                    myPostDivCard.style.marginBottom = "1em";
-                    myPostDivCard.style.boxShadow = "10px 20px 30px black";
-                    myPostDivCard.style.borderRadius = "7px";
-                    myPostDivCard.style.padding = ".4em";
+                    //**call method */
+                    renders.render(myPostDivCard);
+                    console.log(`${renders.alignitems}`);
+                    //** */
+
                     myPostDiv.append(myPostDivCard);
 
 
