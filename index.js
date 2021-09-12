@@ -129,12 +129,6 @@ fiveMoreBtn.addEventListener("click", function(e) {
 
 //create a way to post a new blog to the API.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
 
-let Post = class { //ES6 syntax this time!
-    constructor(title, body) {
-        this.title = title;
-        this.body = body
-    }
-}   
 
 const renderMyPost = new RenderPosts("ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em")
 
@@ -142,9 +136,6 @@ let myUniquePostsArray = [];
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
-
-    let myPost = new Post(formTitle.value, formBody.value);
-    console.log(myPost);
 
     fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
         method: "POST", 
@@ -159,22 +150,35 @@ form.addEventListener("submit", function(e) {
     })
         .then(res => res.json())
         .then((data) => {
-            
             myUniquePostsArray.push(data);
             console.log(myUniquePostsArray);
             myUniquePostsArray.forEach((item) => {
                 let myUniquePostDivCard = document.createElement("div");
-                myPostTitle.textContent = `${data.title}`;
+                myPostTitle.textContent = `${item.title}`;
                 renderMyPost.render(myUniquePostDivCard);
                 myUniquePostDivCard.style.color = "#003300";
                 myUniquePostDivCard.append(myPostTitle);
 
-                myPostBody.textContent = `${data.body}`;
+                myPostBody.textContent = `${item.body}`;
                 myUniquePostDivCard.append(myPostBody);
 
                 myPostDiv.append(myUniquePostDivCard);
         })
     })
+
+    // myUniquePostsArray.forEach((item) => {
+    //         let myUniquePostDivCard = document.createElement("div");
+    //         myPostTitle.textContent = `${item.title}`;
+    //         renderMyPost.render(myUniquePostDivCard);
+    //         myUniquePostDivCard.style.color = "#003300";
+    //         myUniquePostDivCard.append(myPostTitle);
+
+    //         myPostBody.textContent = `${item.body}`;
+    //         myUniquePostDivCard.append(myPostBody);
+
+    //         myPostDiv.append(myUniquePostDivCard);
+
+    // })
 })    
 
 
