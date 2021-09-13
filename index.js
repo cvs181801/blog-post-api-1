@@ -19,7 +19,8 @@ myPostDiv.style.alignItems = "center";
 
 let postsArr = [];
 
- function RenderPosts(backgroundcolor, maxwidth, textalign, justifycontent, alignitems, margin, boxshadow, borderradius, padding) { //this is not working
+ function RenderPosts(color, backgroundcolor, maxwidth, textalign, justifycontent, alignitems, margin, boxshadow, borderradius, padding) { //this is not working
+        this.color = color; 
         this.backgroundcolor = backgroundcolor;
         this.maxwidth = maxwidth;
         this.textalign = textalign;
@@ -31,6 +32,7 @@ let postsArr = [];
         this.padding = padding;
       
         this.render = function(element) {
+                    element.style.color = `${this.color}`
                     element.style.backgroundColor = `${this.backgroundcolor}`;
                     element.style.maxWidth = `${this.maxwidth}`;
                     element.style.textAlign = `${this.textalign}`;
@@ -43,7 +45,7 @@ let postsArr = [];
         }
 }    
 
-let renders = new RenderPosts("ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em");
+let renders = new RenderPosts("rgb(46, 21, 5)", "ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em");
 
 //create a way to get the blog posts from the API, and display them on the screen.
 
@@ -130,7 +132,7 @@ fiveMoreBtn.addEventListener("click", function(e) {
 //create a way to post a new blog to the API.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
 
 
-const renderMyPost = new RenderPosts("ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em")
+const renderMyPost = new RenderPosts("#003300", "ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em")
 
 let myUniquePostsArray = [];
 
@@ -152,15 +154,20 @@ form.addEventListener("submit", function(e) {
         .then((data) => {
             myUniquePostsArray.push(data);
             console.log(myUniquePostsArray);
-            myUniquePostsArray.forEach((item) => {
+            myUniquePostsArray.forEach((object) => {
+
+                console.log(object.title);
+                console.log(object.body);
                 let myUniquePostDivCard = document.createElement("div");
-                myPostTitle.textContent = `${item.title}`;
-                renderMyPost.render(myUniquePostDivCard);
-                myUniquePostDivCard.style.color = "#003300";
+                let myPostTitle = document.createElement('h2');
+                myPostTitle.textContent = `${object.title}`;
                 myUniquePostDivCard.append(myPostTitle);
 
-                myPostBody.textContent = `${item.body}`;
+                let myPostBody = document.createElement('p');
+                myPostBody.textContent = `${object.body}`;
                 myUniquePostDivCard.append(myPostBody);
+
+                renderMyPost.render(myUniquePostDivCard);
 
                 myPostDiv.append(myUniquePostDivCard);
         })
