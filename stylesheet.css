@@ -54,14 +54,21 @@ form {
     text-align: center;
     height: 30%;
     max-width: 90%;
-    padding: .5em;
+    padding: 2em .5em 0 .5em;
     background-image: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/quillandink.jpeg);
     background-color:#FFEBCD;
     background-blend-mode: multiply;
+    /*background-repeat:no-repeat;*/
+    
     border-radius: 7px;
-    background-size: contain;
+    background-size: center;
+    /*object-fit: cover;*/
     border: 3px solid var(--drk-brown);
     margin: 0 auto;
+}
+
+label {
+    float: left;
 }
 
 input {
@@ -120,7 +127,7 @@ input {
     justify-content: center;
     background-color: var(--ivory);
     border-radius: 5px;
-    margin: .3em auto .3em auto;
+    margin: .5em auto .3em auto;
     color: var(--drk-brown);
     font-family: inherit;
     font-size: 1rem;
@@ -150,6 +157,13 @@ span {
     font-size: .6rem;
     color: var(--ivory);
     text-align: left;
+}
+
+.form__fineprint {
+    font-size: .6rem;
+    color: var(--drk-brown);
+    text-align: left;
+    margin-top: 2em;
 }
 
 @media (min-width: 600px) {
