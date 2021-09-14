@@ -59,9 +59,9 @@ form {
     background-color:#FFEBCD;
     background-blend-mode: multiply;
     /*background-repeat:no-repeat;*/
-    
+    left: 1.5em;
     border-radius: 7px;
-    background-size: center;
+    background-size: cover;
     /*object-fit: cover;*/
     border: 3px solid var(--drk-brown);
     margin: 0 auto;
@@ -179,7 +179,6 @@ span {
     }
 
     .fineprint {
-        
         margin-top: 3.5em;
     }
 
@@ -188,5 +187,21 @@ span {
         align-items: center;
         justify-content: center;
         font-size: 1.2rem;
+    }
+
+    form {
+        left: 30em;
+        max-width: 40vw;
+        height: 38vh;
+        background-size: contain;
+        padding: 10.5em .5em 0 .5em;
+    }
+
+    input {
+        width: 30em;
+    }
+
+    .form__fineprint {
+        margin-top: 1em;
     }
 }
