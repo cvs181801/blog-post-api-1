@@ -28,6 +28,7 @@ body {
     opacity: .8;
     z-index: 3;
     background-position: center;
+    margin: 0 auto;
 }
 
 h1 {
@@ -49,8 +50,9 @@ h1 {
     justify-content: center;
     background-color: var(--light-peru);
     border-radius: 5px;
-    margin: 1em 0em 1em 11em;
-    max-width: 30vw;
+    /*margin: 1em 0em 1em 11em;*/
+    margin: 0 auto;
+   /* max-width: 30vw;*/
     color: var(--drk-brown);
     font-family: inherit;
     text-transform: uppercase;
@@ -62,7 +64,28 @@ h1 {
     border: 1px solid var(--drk-brown);
 }
 
-.btn__5More:hover {
+.btn__post {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-peru);
+    border-radius: 5px;
+    margin: 0 auto;
+    /*max-width: 30vw;*/
+    color: var(--drk-brown);
+    font-family: inherit;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    box-shadow: 10px 20px 30px black;
+    cursor: pointer;
+    padding: .2em;
+    transition: 250ms;
+    border: 1px solid var(--drk-brown);
+}
+
+.btn__5More:hover,
+.btn__post:hover  {
     transform: scale(1.1);
     background-color: var(--soft-vino);
     border: 1px solid var(--vino);
