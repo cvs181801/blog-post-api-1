@@ -60,6 +60,7 @@ form {
     background-blend-mode: multiply;
     /*background-repeat:no-repeat;*/
     left: 1.5em;
+    /*bottom: -542px;*/
     border-radius: 7px;
     background-size: cover;
     /*object-fit: cover;*/
@@ -200,6 +201,7 @@ span {
         height: 38vh;
         background-size: contain;
         padding: 10.5em .5em 0 .5em;
+      
     }
 
     input {

@@ -130,8 +130,9 @@ fiveMoreBtn.addEventListener("click", function(e) {
 
 postBtn.addEventListener("click", function(e) {
     form.classList.remove("hidden");
-    //form.style.bottom = "850px"; //still need to add some way to make the form show at bottom of screen where user is
+    //form.style.bottom = -postBtn.getBoundingClientRect().bottom; this isn't quite working here but when I add it manually on the css stylesheet it is working ***
     console.log(window.screen.availHeight);
+    console.log(`-${postBtn.getBoundingClientRect().bottom}`); 
 })
 
 //create a way to post a new blog to the API and render it to the user.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
