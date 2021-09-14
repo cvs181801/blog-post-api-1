@@ -8,6 +8,7 @@ let myPostTitle = document.createElement("h2");
 let myPostBody = document.createElement("p");
 const myPostDiv = document.querySelector(".postDiv");
 const fiveMoreBtn = document.querySelector(".btn__5More");
+const postBtn = document.querySelector(".btn__post");
 
 //add style
 myPostDiv.style.margin = "0 auto";
@@ -125,6 +126,13 @@ fiveMoreBtn.addEventListener("click", function(e) {
     })
 })
 
+//create a way for the user to open the 'post your own blog' form/modal
+
+postBtn.addEventListener("click", function(e) {
+    form.classList.remove("hidden");
+    //form.style.bottom = y - 220px;
+})
+
 //create a way to post a new blog to the API and render it to the user.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
 
 
@@ -134,6 +142,7 @@ let myUniquePostsArray = [];
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
+    form.classList.add("hidden");
 
     fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
         method: "POST", 

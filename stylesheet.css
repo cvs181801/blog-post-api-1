@@ -65,6 +65,7 @@ form {
     /*object-fit: cover;*/
     border: 3px solid var(--drk-brown);
     margin: 0 auto;
+    z-index: 1000;
 }
 
 label {
@@ -164,6 +165,10 @@ span {
     color: var(--drk-brown);
     text-align: left;
     margin-top: 2em;
+}
+
+.hidden {
+    display: none;
 }
 
 @media (min-width: 600px) {
