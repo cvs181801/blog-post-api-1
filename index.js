@@ -125,11 +125,7 @@ fiveMoreBtn.addEventListener("click", function(e) {
     })
 })
 
-//*** The below code was used to practice posting a new blog to the api using 'POST' method. */
-
-//let n = 0;
-
-//create a way to post a new blog to the API.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
+//create a way to post a new blog to the API and render it to the user.  Using this place holder api, it won't actually post to the api, but will simulate the response as if it did.
 
 
 const renderMyPost = new RenderPosts("#003300", "ivory", "50vw", "center", "center", "center", "0 auto 1em auto", "10px 20px 30px black", "7px", ".4em")
@@ -153,39 +149,30 @@ form.addEventListener("submit", function(e) {
         .then(res => res.json())
         .then((data) => {
             myUniquePostsArray.push(data);
-            console.log(myUniquePostsArray);
-            myUniquePostsArray.forEach((object) => {
+            let myUniquePostDivCard = document.createElement("div");
+            let myPostTitle = document.createElement('h2');
+            myPostTitle.textContent = myUniquePostsArray[myUniquePostsArray.length - 1].title;
+            myUniquePostDivCard.append(myPostTitle);
 
-                console.log(object.title);
-                console.log(object.body);
-                let myUniquePostDivCard = document.createElement("div");
-                let myPostTitle = document.createElement('h2');
-                myPostTitle.textContent = `${object.title}`;
-                myUniquePostDivCard.append(myPostTitle);
+            let myPostBody = document.createElement('p');
+            myPostBody.textContent = myUniquePostsArray[myUniquePostsArray.length - 1].body;
+            myUniquePostDivCard.append(myPostBody);
 
-                let myPostBody = document.createElement('p');
-                myPostBody.textContent = `${object.body}`;
-                myUniquePostDivCard.append(myPostBody);
+            renderMyPost.render(myUniquePostDivCard);
 
-                renderMyPost.render(myUniquePostDivCard);
+            myPostDiv.append(myUniquePostDivCard);  
 
-                myPostDiv.append(myUniquePostDivCard);
-        })
+            myUniquePostDivCard.addEventListener("mouseover", function(e) {
+                myUniquePostDivCard.style.transition = "250ms";
+                myUniquePostDivCard.style.transform = "scale(1.1)";
+            })
+
+            myUniquePostDivCard.addEventListener("mouseout", function(e) {
+                myUniquePostDivCard.style.transition = "250ms";
+                myUniquePostDivCard.style.transform = "scale(1)";
+            })
     })
-
-    // myUniquePostsArray.forEach((item) => {
-    //         let myUniquePostDivCard = document.createElement("div");
-    //         myPostTitle.textContent = `${item.title}`;
-    //         renderMyPost.render(myUniquePostDivCard);
-    //         myUniquePostDivCard.style.color = "#003300";
-    //         myUniquePostDivCard.append(myPostTitle);
-
-    //         myPostBody.textContent = `${item.body}`;
-    //         myUniquePostDivCard.append(myPostBody);
-
-    //         myPostDiv.append(myUniquePostDivCard);
-
-    // })
+                
 })    
 
 
