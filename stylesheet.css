@@ -23,7 +23,7 @@ body {
 
 .background {
     padding: 1em;
-    background: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/pics/oldbooks.jpeg);
+    background: url(/Users/casvalkyriespicer/Documents/GitHub/blog-post-api-1/oldbooks.jpg);
     background-color: var(--cognac);
     opacity: .8;
     z-index: 3;
@@ -87,9 +87,7 @@ input {
     justify-content: center;
     background-color: var(--light-peru);
     border-radius: 5px;
-    /*margin: 1em 0em 1em 11em;*/
     margin: 0 auto;
-   /* max-width: 30vw;*/
     color: var(--drk-brown);
     font-family: inherit;
     text-transform: uppercase;
